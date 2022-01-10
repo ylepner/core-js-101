@@ -16,12 +16,6 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
-    "linebreak-style": 0,
-    "import/prefer-default-export": 0,
-    "no-plusplus": 0,
-    "@typescript-eslint/no-use-before-define": 0,
-    "radix": 0,
-    "no-param-reassign": 0,
-    "arrow-parens": 0
+    "linebreak-style": 0
   },
 };

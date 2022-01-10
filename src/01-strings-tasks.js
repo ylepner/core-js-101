@@ -229,7 +229,7 @@ function encodeToRot13(str) {
   const inputChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   const outputChars = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
   let newString = '';
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i += 1) {
     if (str[i] === ' ' || str[i] === '!' || str[i] === '?') {
       newString += str[i];
     } else {

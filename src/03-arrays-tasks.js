@@ -58,7 +58,7 @@ function generateOdds(len) {
  *    [] => []
  */
 function doubleArray(arr) {
-  arr.map(el => arr.push(el));
+  arr.map((el) => arr.push(el));
   return arr;
 }
 
@@ -75,7 +75,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-  const result = arr.filter(el => el > 0);
+  const result = arr.filter((el) => el > 0);
   return result;
 }
 
@@ -91,7 +91,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
 function getArrayOfStrings(arr) {
-  const result = arr.filter(el => typeof el === 'string');
+  const result = arr.filter((el) => typeof el === 'string');
   return result;
 }
 
@@ -109,7 +109,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  const result = arr.filter(el => !!el);
+  const result = arr.filter((el) => !!el);
   return result;
 }
 
@@ -125,7 +125,7 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-  const result = arr.map(el => el.toUpperCase());
+  const result = arr.map((el) => el.toUpperCase());
   return result;
 }
 
@@ -141,7 +141,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-  const result = arr.map(el => el.length);
+  const result = arr.map((el) => el.length);
   return result;
 }
 
@@ -381,7 +381,7 @@ function getFalsyValuesCount(/* arr */) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurrences(arr, item) {
-  const result = arr.filter(el => el === item);
+  const result = arr.filter((el) => el === item);
   return result.length;
 }
 
