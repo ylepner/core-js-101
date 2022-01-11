@@ -21,10 +21,7 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-  if (arr.includes(value)) {
-    return arr.indexOf(value);
-  }
-  return -1;
+  return arr.indexOf(value);
 }
 
 /**
@@ -39,8 +36,8 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  const array = new Array(len).fill('1');
-  const arrayOdd = array.map((el, i) => Number(el) + i * 2);
+  const array = new Array(len).fill(0);
+  const arrayOdd = array.map((_, i) => 1 + i * 2);
   return arrayOdd;
 }
 
@@ -286,8 +283,8 @@ function getSecondItems(arr) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  return arr.map((el, i) => new Array(i + 1).fill(el)).flat();
 }
 
 
@@ -305,7 +302,7 @@ function propagateItemsByPositionIndex(/* arr */) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-  return arr.slice(-3).reverse();
+  return [...arr].sort((a, b) => a - b).slice(-3).reverse();
 }
 
 /**
@@ -323,10 +320,7 @@ function get3TopItems(arr) {
  */
 function getPositivesCount(arr) {
   const filterArr = arr.filter((el) => typeof el === 'number' && el > 0);
-  if (filterArr.length === 0) {
-    return [];
-  }
-  return Math.max.apply(null, filterArr);
+  return filterArr.length;
 }
 
 /**
@@ -379,10 +373,7 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-  if (arr.length === 0) {
-    return 0;
-  }
-  const newArr = (arr.map((el) => !!el)).filter((el) => !el);
+  const newArr = arr.filter((el) => !el);
   return newArr.length;
 }
 
