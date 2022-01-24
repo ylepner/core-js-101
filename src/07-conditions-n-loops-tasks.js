@@ -238,8 +238,8 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return (str.split('').reverse()).join('');
 }
 
 
@@ -255,8 +255,8 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  return Number(String(num).split('').reverse().join(''));
 }
 
 
@@ -266,7 +266,7 @@ function reverseInteger(/* num */) {
  *
  * See algorithm here : https://en.wikipedia.org/wiki/Luhn_algorithm
  *
- * @param {number} cnn
+ * @param {number} ccn
  * @return {boolean}
  *
  * @example:
@@ -298,8 +298,13 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  if (num <= 9) {
+    return num;
+  }
+  const numArray = String(num).split('').map((el) => Number(el));
+  const sum = numArray.reduce((a, b) => a + b);
+  return getDigitalRoot(sum);
 }
 
 
@@ -324,8 +329,26 @@ function getDigitalRoot(/* num */) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  const bracketsOpen = ['(', '{', '[', '<'];
+  const bracketsClose = [')', '}', ']', '>'];
+  const stackArr = [];
+  for (let i = 0; i < str.length; i += 1) {
+    if (bracketsOpen.includes(str[i])) {
+      stackArr.push(str[i]);
+    } else if (bracketsClose.includes(str[i])) {
+      if (stackArr.length === 0) {
+        return false;
+      }
+      if (bracketsOpen.indexOf(stackArr[stackArr.length - 1]) === bracketsClose.indexOf(str[i])) {
+        stackArr.pop();
+      }
+    }
+  }
+  if (stackArr.length === 0) {
+    return true;
+  }
+  return false;
 }
 
 
@@ -349,8 +372,8 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
@@ -398,7 +421,7 @@ function getMatrixProduct(/* m1, m2 */) {
  * Returns the evaluation of the specified tic-tac-toe position.
  * See the details: https://en.wikipedia.org/wiki/Tic-tac-toe
  *
- * Position is provides as 3x3 array with the following values: 'X','0', undefined
+ * Position is provides as 3x3 array with the following сs: 'X','0', undefined
  * Function should return who is winner in the current position according to the game rules.
  * The result can be: 'X','0',undefined
  *
